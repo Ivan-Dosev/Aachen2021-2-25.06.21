@@ -3,10 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CC633E4F264B819F005C7AB8 /* ModelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC633E4E264B819F005C7AB8 /* ModelRepository.swift */; };
+		CC633EC4264ECD69005C7AB8 /* FirebaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC633EC3264ECD69005C7AB8 /* FirebaseView.swift */; };
+		CC633EC6264F76F9005C7AB8 /* BlockFierbaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC633EC5264F76F9005C7AB8 /* BlockFierbaseView.swift */; };
 		CCF813452648D26800A6869F /* Aachen2021App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813442648D26800A6869F /* Aachen2021App.swift */; };
 		CCF813472648D26800A6869F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813462648D26800A6869F /* ContentView.swift */; };
 		CCF813492648D26A00A6869F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF813482648D26A00A6869F /* Assets.xcassets */; };
@@ -15,6 +18,26 @@
 		CCF813512648D26A00A6869F /* Aachen2021.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CCF8134F2648D26A00A6869F /* Aachen2021.xcdatamodeld */; };
 		CCF8135C2648D26A00A6869F /* Aachen2021Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF8135B2648D26A00A6869F /* Aachen2021Tests.swift */; };
 		CCF813672648D26A00A6869F /* Aachen2021UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813662648D26A00A6869F /* Aachen2021UITests.swift */; };
+		CCF813752648D5E300A6869F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CCF813742648D5E300A6869F /* GoogleService-Info.plist */; };
+		CCF813792648D74F00A6869F /* FirebaseFirestoreSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = CCF813782648D74F00A6869F /* FirebaseFirestoreSwift-Beta */; };
+		CCF8137B2648D74F00A6869F /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CCF8137A2648D74F00A6869F /* FirebaseStorage */; };
+		CCF8137D2648D74F00A6869F /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = CCF8137C2648D74F00A6869F /* FirebaseAuth */; };
+		CCF8137F2648D74F00A6869F /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = CCF8137E2648D74F00A6869F /* FirebaseFirestore */; };
+		CCF813812648D74F00A6869F /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = CCF813802648D74F00A6869F /* FirebaseStorageSwift-Beta */; };
+		CCF813862648E12100A6869F /* Blocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813852648E12100A6869F /* Blocks.swift */; };
+		CCF813882648E18500A6869F /* CryptoCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813872648E18500A6869F /* CryptoCode.swift */; };
+		CCF8138A2648E1E100A6869F /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813892648E1E100A6869F /* ImagePicker.swift */; };
+		CCF8138C2648E23200A6869F /* StartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF8138B2648E23200A6869F /* StartView.swift */; };
+		CCF8138E2648E27E00A6869F /* Adress.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF8138D2648E27E00A6869F /* Adress.swift */; };
+		CCF813902648E2B600A6869F /* FirstProView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF8138F2648E2B600A6869F /* FirstProView.swift */; };
+		CCF813932648E4AD00A6869F /* ColorSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813922648E4AD00A6869F /* ColorSwitch.swift */; };
+		CCF813952648E4D400A6869F /* ColorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813942648E4D400A6869F /* ColorService.swift */; };
+		CCF813972648E54E00A6869F /* BlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813962648E54E00A6869F /* BlockView.swift */; };
+		CCF813992648E57700A6869F /* PickerButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813982648E57700A6869F /* PickerButtonView.swift */; };
+		CCF8139B2648E59700A6869F /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF8139A2648E59700A6869F /* DataView.swift */; };
+		CCF8139D2648E5BE00A6869F /* SendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF8139C2648E5BE00A6869F /* SendView.swift */; };
+		CCF813A02648E6DA00A6869F /* CryptoData_Array+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF8139E2648E6DA00A6869F /* CryptoData_Array+CoreDataClass.swift */; };
+		CCF813A12648E6DA00A6869F /* CryptoData_Array+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF8139F2648E6DA00A6869F /* CryptoData_Array+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +58,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CC633E4E264B819F005C7AB8 /* ModelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRepository.swift; sourceTree = "<group>"; };
+		CC633EC3264ECD69005C7AB8 /* FirebaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseView.swift; sourceTree = "<group>"; };
+		CC633EC5264F76F9005C7AB8 /* BlockFierbaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockFierbaseView.swift; sourceTree = "<group>"; };
 		CCF813412648D26800A6869F /* Aachen2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aachen2021.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF813442648D26800A6869F /* Aachen2021App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aachen2021App.swift; sourceTree = "<group>"; };
 		CCF813462648D26800A6869F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -49,6 +75,22 @@
 		CCF813622648D26A00A6869F /* Aachen2021UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Aachen2021UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF813662648D26A00A6869F /* Aachen2021UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aachen2021UITests.swift; sourceTree = "<group>"; };
 		CCF813682648D26A00A6869F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCF813742648D5E300A6869F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CCF813762648D65C00A6869F /* Aachen2021.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Aachen2021.entitlements; sourceTree = "<group>"; };
+		CCF813852648E12100A6869F /* Blocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blocks.swift; sourceTree = "<group>"; };
+		CCF813872648E18500A6869F /* CryptoCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoCode.swift; sourceTree = "<group>"; };
+		CCF813892648E1E100A6869F /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		CCF8138B2648E23200A6869F /* StartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartView.swift; sourceTree = "<group>"; };
+		CCF8138D2648E27E00A6869F /* Adress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adress.swift; sourceTree = "<group>"; };
+		CCF8138F2648E2B600A6869F /* FirstProView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstProView.swift; sourceTree = "<group>"; };
+		CCF813922648E4AD00A6869F /* ColorSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSwitch.swift; sourceTree = "<group>"; };
+		CCF813942648E4D400A6869F /* ColorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorService.swift; sourceTree = "<group>"; };
+		CCF813962648E54E00A6869F /* BlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockView.swift; sourceTree = "<group>"; };
+		CCF813982648E57700A6869F /* PickerButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerButtonView.swift; sourceTree = "<group>"; };
+		CCF8139A2648E59700A6869F /* DataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
+		CCF8139C2648E5BE00A6869F /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
+		CCF8139E2648E6DA00A6869F /* CryptoData_Array+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoData_Array+CoreDataClass.swift"; sourceTree = "<group>"; };
+		CCF8139F2648E6DA00A6869F /* CryptoData_Array+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CryptoData_Array+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +98,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCF813812648D74F00A6869F /* FirebaseStorageSwift-Beta in Frameworks */,
+				CCF813792648D74F00A6869F /* FirebaseFirestoreSwift-Beta in Frameworks */,
+				CCF8137F2648D74F00A6869F /* FirebaseFirestore in Frameworks */,
+				CCF8137D2648D74F00A6869F /* FirebaseAuth in Frameworks */,
+				CCF8137B2648D74F00A6869F /* FirebaseStorage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +126,8 @@
 		CCF813382648D26800A6869F = {
 			isa = PBXGroup;
 			children = (
+				CCF8139E2648E6DA00A6869F /* CryptoData_Array+CoreDataClass.swift */,
+				CCF8139F2648E6DA00A6869F /* CryptoData_Array+CoreDataProperties.swift */,
 				CCF813432648D26800A6869F /* Aachen2021 */,
 				CCF8135A2648D26A00A6869F /* Aachen2021Tests */,
 				CCF813652648D26A00A6869F /* Aachen2021UITests */,
@@ -99,8 +148,11 @@
 		CCF813432648D26800A6869F /* Aachen2021 */ = {
 			isa = PBXGroup;
 			children = (
+				CCF813762648D65C00A6869F /* Aachen2021.entitlements */,
 				CCF813442648D26800A6869F /* Aachen2021App.swift */,
 				CCF813462648D26800A6869F /* ContentView.swift */,
+				CCF813822648E01500A6869F /* Project */,
+				CCF813742648D5E300A6869F /* GoogleService-Info.plist */,
 				CCF813482648D26A00A6869F /* Assets.xcassets */,
 				CCF8134D2648D26A00A6869F /* Persistence.swift */,
 				CCF813522648D26A00A6869F /* Info.plist */,
@@ -136,6 +188,52 @@
 			path = Aachen2021UITests;
 			sourceTree = "<group>";
 		};
+		CCF813822648E01500A6869F /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				CCF813832648E0A100A6869F /* FirstView */,
+				CCF813842648E0B200A6869F /* NextView */,
+				CCF813912648E33700A6869F /* WiFiService */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		CCF813832648E0A100A6869F /* FirstView */ = {
+			isa = PBXGroup;
+			children = (
+				CCF8138F2648E2B600A6869F /* FirstProView.swift */,
+				CCF8138D2648E27E00A6869F /* Adress.swift */,
+				CCF8138B2648E23200A6869F /* StartView.swift */,
+				CCF813852648E12100A6869F /* Blocks.swift */,
+				CCF813892648E1E100A6869F /* ImagePicker.swift */,
+				CCF813872648E18500A6869F /* CryptoCode.swift */,
+				CC633E4E264B819F005C7AB8 /* ModelRepository.swift */,
+			);
+			path = FirstView;
+			sourceTree = "<group>";
+		};
+		CCF813842648E0B200A6869F /* NextView */ = {
+			isa = PBXGroup;
+			children = (
+				CCF813962648E54E00A6869F /* BlockView.swift */,
+				CCF813982648E57700A6869F /* PickerButtonView.swift */,
+				CCF8139A2648E59700A6869F /* DataView.swift */,
+				CC633EC3264ECD69005C7AB8 /* FirebaseView.swift */,
+				CC633EC5264F76F9005C7AB8 /* BlockFierbaseView.swift */,
+				CCF8139C2648E5BE00A6869F /* SendView.swift */,
+			);
+			path = NextView;
+			sourceTree = "<group>";
+		};
+		CCF813912648E33700A6869F /* WiFiService */ = {
+			isa = PBXGroup;
+			children = (
+				CCF813942648E4D400A6869F /* ColorService.swift */,
+				CCF813922648E4AD00A6869F /* ColorSwitch.swift */,
+			);
+			path = WiFiService;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,6 +250,13 @@
 			dependencies = (
 			);
 			name = Aachen2021;
+			packageProductDependencies = (
+				CCF813782648D74F00A6869F /* FirebaseFirestoreSwift-Beta */,
+				CCF8137A2648D74F00A6869F /* FirebaseStorage */,
+				CCF8137C2648D74F00A6869F /* FirebaseAuth */,
+				CCF8137E2648D74F00A6869F /* FirebaseFirestore */,
+				CCF813802648D74F00A6869F /* FirebaseStorageSwift-Beta */,
+			);
 			productName = Aachen2021;
 			productReference = CCF813412648D26800A6869F /* Aachen2021.app */;
 			productType = "com.apple.product-type.application";
@@ -223,6 +328,9 @@
 				Base,
 			);
 			mainGroup = CCF813382648D26800A6869F;
+			packageReferences = (
+				CCF813772648D74F00A6869F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = CCF813422648D26800A6869F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -240,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCF8134C2648D26A00A6869F /* Preview Assets.xcassets in Resources */,
+				CCF813752648D5E300A6869F /* GoogleService-Info.plist in Resources */,
 				CCF813492648D26A00A6869F /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,8 +376,25 @@
 			files = (
 				CCF813512648D26A00A6869F /* Aachen2021.xcdatamodeld in Sources */,
 				CCF8134E2648D26A00A6869F /* Persistence.swift in Sources */,
+				CCF813A12648E6DA00A6869F /* CryptoData_Array+CoreDataProperties.swift in Sources */,
+				CCF813932648E4AD00A6869F /* ColorSwitch.swift in Sources */,
+				CCF813972648E54E00A6869F /* BlockView.swift in Sources */,
+				CCF813862648E12100A6869F /* Blocks.swift in Sources */,
+				CCF813902648E2B600A6869F /* FirstProView.swift in Sources */,
+				CCF8138C2648E23200A6869F /* StartView.swift in Sources */,
+				CCF813A02648E6DA00A6869F /* CryptoData_Array+CoreDataClass.swift in Sources */,
+				CCF8138A2648E1E100A6869F /* ImagePicker.swift in Sources */,
 				CCF813472648D26800A6869F /* ContentView.swift in Sources */,
+				CC633EC6264F76F9005C7AB8 /* BlockFierbaseView.swift in Sources */,
 				CCF813452648D26800A6869F /* Aachen2021App.swift in Sources */,
+				CCF813952648E4D400A6869F /* ColorService.swift in Sources */,
+				CCF813882648E18500A6869F /* CryptoCode.swift in Sources */,
+				CCF8139B2648E59700A6869F /* DataView.swift in Sources */,
+				CC633E4F264B819F005C7AB8 /* ModelRepository.swift in Sources */,
+				CCF813992648E57700A6869F /* PickerButtonView.swift in Sources */,
+				CC633EC4264ECD69005C7AB8 /* FirebaseView.swift in Sources */,
+				CCF8139D2648E5BE00A6869F /* SendView.swift in Sources */,
+				CCF8138E2648E27E00A6869F /* Adress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +551,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Aachen2021/Aachen2021.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Aachen2021/Preview Content\"";
 				DEVELOPMENT_TEAM = 2FYTR3E5Q9;
@@ -447,6 +574,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Aachen2021/Aachen2021.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Aachen2021/Preview Content\"";
 				DEVELOPMENT_TEAM = 2FYTR3E5Q9;
@@ -588,6 +716,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CCF813772648D74F00A6869F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		CCF813782648D74F00A6869F /* FirebaseFirestoreSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCF813772648D74F00A6869F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		CCF8137A2648D74F00A6869F /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCF813772648D74F00A6869F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		CCF8137C2648D74F00A6869F /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCF813772648D74F00A6869F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		CCF8137E2648D74F00A6869F /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCF813772648D74F00A6869F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		CCF813802648D74F00A6869F /* FirebaseStorageSwift-Beta */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CCF813772648D74F00A6869F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = "FirebaseStorageSwift-Beta";
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		CCF8134F2648D26A00A6869F /* Aachen2021.xcdatamodeld */ = {
