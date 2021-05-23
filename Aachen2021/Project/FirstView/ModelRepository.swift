@@ -24,18 +24,18 @@ class ModelRepository : ObservableObject {
     let db = Firestore.firestore()
     let storageRef = Storage.storage().reference().child("\(Auth.auth().currentUser?.uid)")
     let userID = Auth.auth().currentUser?.uid
-
     
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: CryptoData_Array.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \CryptoData_Array.data_event, ascending: true)]) var cryptoDataArray: FetchedResults<CryptoData_Array>
    
     init() {
-//     chackOnLine()
+
         loadAllPeerOnLine()
-//        loadAllModels()
-//        loadFromFier()
+
     }
     
     deinit {
-//        chackOffLine()
+        chackOffLine()
     }
     
  
@@ -45,7 +45,11 @@ class ModelRepository : ObservableObject {
        
 
             do{
-                let _ = try! db.collection("Allauth").document(Auth.auth().currentUser!.uid).updateData(["isInLine": true, "dataPack": Data()]) { err in
+                let _ = try! db.collection("Allauth").document(Auth.auth().currentUser!.uid).updateData(["isInLine": true,
+                                                                                                         "title": "",
+                                                                                                         "fromPEER": "",
+                                                                                                         "toPEER": "",
+                                                                                                         "isDownloud": false]) { err in
                     if err != nil {
                         print((err?.localizedDescription)!)
                         return
@@ -72,6 +76,39 @@ class ModelRepository : ObservableObject {
         }catch{}
 
     }
+    
+//    func saveToCoreData(){
+//
+//        db.collection("Allauth").document(Auth.auth().currentUser!.uid).addSnapshotListener{ [self] (document, err ) in
+//
+//            print("<.>   ,<.>  \(document)")
+//            document.map{ doc in
+//                doc.data().map{ pro in
+//                   let a = pro["isDownloud"] as! Bool
+//                    if a  {
+//
+//                        let title = pro["title"] as! String
+//                        let dataFromUrl : Data = title.loadData()
+//                        let textData = CryptoData_Array(context: moc)
+//                        textData.peer_To_peer  = pro["fromPEER"] as! String
+//                        textData.name_Title    = pro["toPEER"] as! String
+//                        textData.crypt_Date    = dataFromUrl
+//                        textData.data_event    = pro["data_event"] as! String
+//                        textData.date_term     = pro["date_term"] as! String
+//                        textData.minuteMM      =  pro["minuteMM"] as! String
+//                        textData.index_F       = String(2)
+//
+//                    do {
+//                        try self.moc.save()
+//
+//                        }catch {}
+//                        print("ok .......... ok")
+//                    }
+//                }
+//            }
+//        }
+//    }
+    
     
     func loadAllPeerOnLine() {
 
@@ -138,39 +175,41 @@ class ModelRepository : ObservableObject {
         }
     }
     
-//    func saveToStore(_ data: Data) {
-//        
-//        do{
-//            
-//            let _ = try! storageRef.putData(data, metadata: nil) { (metadata , error ) in
-//                
-//                guard let metadata = metadata else {
-//                    print("error metadada ...")
-//                    return
-//                }
-//                let size = metadata.size
-//                
-//                print("size = \(size)")
-//                DispatchQueue.main.async { [self] in
-//                    storageRef.downloadURL{( url , err ) in
-//                        guard let downloadURL = url else {
-//                            print("error .. >> url")
-//                            return
-//                        }
-//                        print("url >> \(downloadURL.relativeString)")
-//                        self.downloadURL = "\(downloadURL)"
-//                        
-//                        for mod in allModels {
-//                            print("dossi = \(mod.authNumber)")
-//                            let model = AuthModel(authNumber: "\(mod.authNumber)", authPhone: "\(mod.authPhone)", title: "\(downloadURL)", fromPEER: "\(UIDevice.current.name)", toPEER: "self.fromPeer", index_H: "2")
-//                                saveToAllModels("\(mod.authNumber)", model)
-//                        }
-//                    }
-//                }
-//            }
-//        }catch{
-//            print("error putData ...")
-//        } 
-//    }
+    func saveToPeerInFierbase(user: String, title: String, fromPEER: String, toPEER: String, idDownloud: Bool, data_event: String, date_term : String, minuteMM: String) {
+        
+        do{
+            let _ = try! db.collection("Allauth").document(user).updateData([ "title": title,
+                                                                              "fromPEER": fromPEER,
+                                                                              "toPEER": toPEER,
+                                                                              "isDownloud": true,
+                                                                              "data_event": data_event,
+                                                                              "date_term": date_term,
+                                                                              "minuteMM": minuteMM ]) { err in
+                if err != nil {
+                    print((err?.localizedDescription)!)
+                    return
+                }
+            }
+        }catch{}
+        
+    }
+    
+    func loadData(url: String) -> Data {
+        
+        let klu4 = UIImage(named: "klu4")!.jpegData(compressionQuality: 1.0)
+        
+        do{
+            guard  let url = URL(string: url) else {
+                print(" guard  let url = URL(string: self)")
+                return  klu4! }
+            let data : Data = try Data(contentsOf: url)
+            return data
+            
+        }catch{
+            print("error image")
+            return klu4!
+        }
+       
+    }
     
 }

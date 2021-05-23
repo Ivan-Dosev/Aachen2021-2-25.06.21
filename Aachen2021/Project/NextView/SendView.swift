@@ -13,7 +13,7 @@ import FirebaseAuth
 
 struct SendView: View {
     @ObservedObject var models       = ModelRepository()
-    @ObservedObject var colorService = ColorService()
+    @StateObject var colorService = ColorService()
     @State   var peerString     : String = ""
     @Binding var image          : UIImage?
     @Binding var isWitness      : Bool
@@ -69,8 +69,7 @@ struct SendView: View {
     @State var isAnswerOk  : Bool = false
     @State var isOkSend    : Bool = false
     @State var isSendStart : Bool = true
-    @State var sendToAll   : Bool = true
-    @State var cryptoData  : Bool = true
+
     
     
     var body: some View {
@@ -85,6 +84,7 @@ struct SendView: View {
 // MARK: - Button exit
                         
                         Button(action: {
+                            colorService.stopService()
                             pMode.wrappedValue.dismiss()
                         }) {
                             Text("⏎")
@@ -108,31 +108,6 @@ struct SendView: View {
                     .mask( BlockTop())
                     .overlay( BlockTop().stroke(lineWidth: 2).foregroundColor(.gray).blur(radius: 1.0))
                 
-                HStack(spacing: 0){
-
-                    Toggle(isOn: $sendToAll) {
-                        HStack {
-                            Spacer()
-                            Text("All in Net")
-                                .font(.custom("", size: 12 * button_index ))
-                        }
-                    }
-                    Toggle(isOn: $cryptoData) {
-                        HStack {
-                            Spacer()
-                            Text("Еncrypted data")
-                                .font(.custom("", size: 12 * button_index ))
-                        }
-                    }
-
-                }
-                .font(.system(size: 20))
-                .padding()
-                .frame(width: width_block, height:  height_block, alignment: .center)
-                .foregroundColor(.white)
-                .background(Color(colorBackground2))
-                .mask( BlockMidle())
-                .overlay( BlockMidle().stroke(lineWidth: 2).foregroundColor(.gray).blur(radius: 1.0))
                 
 // MARK: - Date validation
                 
@@ -313,15 +288,14 @@ struct SendView: View {
     
     func senderData() -> Data {
         
-        let data = image?.jpegData(compressionQuality: 1.0)
+        let data = image?.jpegData(compressionQuality: 0.5)
         let receiverEncryptionPublicKey = try! Curve25519.KeyAgreement.PublicKey(rawRepresentation: agreement__ID)
         let sealedMessage = try! encrypt(data!, to: receiverEncryptionPublicKey, signedBy: privateID_Key)
+
+  let model = Model(peerID: Data(), massige: sealedMessage, isSender: true,dateNow: dateNow, dateFutuer: dateFutuer, peerTopeer: self.peertopeer, witness: Data())
         
-//        let model = Model(peerID: Data(), massige: data!, isSender: true,dateNow: dateNow, dateFutuer: dateFutuer)
-        let model = Model(peerID: Data(), massige: sealedMessage, isSender: true,dateNow: dateNow, dateFutuer: dateFutuer, peerTopeer: self.peertopeer, witness: Data())
-        
-        let modelData = try! JSONEncoder().encode(model)
-       return modelData
+    let modelData = try! JSONEncoder().encode(model)
+        return modelData
     }
     
     func saveToCoreData(peer : MCPeerID, onSelect: () -> Void) {
@@ -372,13 +346,18 @@ struct SendView: View {
     
     func   saveToFireBase(){
         
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM dd, yyyy"
+        let minute = DateFormatter()
+            minute.dateFormat = "HH:mm:ss"
+        
         let data = image?.jpegData(compressionQuality: 0.5)
         let receiverEncryptionPublicKey = try! Curve25519.KeyAgreement.PublicKey(rawRepresentation: agreement__ID)
         let sealedMessage = try! encrypt(data!, to: receiverEncryptionPublicKey, signedBy: privateID_Key)
         
         do{
             
-            let _ = try! storageRef.putData( (cryptoData ?  sealedMessage : data)!, metadata: nil) { (metadata , error ) in
+            let _ = try! storageRef.putData( sealedMessage, metadata: nil) { (metadata , error ) in
                 
                 guard let metadata = metadata else {
                     print("error metadada ...")
@@ -397,8 +376,8 @@ struct SendView: View {
                         
                         for mod in models.allModels {
                             print("dossi = \(mod.authNumber)")
-                            let model = AuthModel(authNumber: "\(mod.authNumber)", authPhone: "\(mod.authPhone)", title: "\(downloadURL)", fromPEER: "\(UIDevice.current.name)", toPEER: self.fromPeer, index_H: "2")
-                            models.saveToAllModels("\(mod.authNumber)", model)
+
+                            models.saveToPeerInFierbase(user: mod.authNumber, title: "\(downloadURL)", fromPEER: "\(UIDevice.current.name)", toPEER: self.fromPeer, idDownloud: true, data_event: formatter.string(from: self.dateNow),date_term: formatter.string(from: self.dateFutuer), minuteMM:  minute.string(from: self.dateNow))
                         }
                     }
                 }
@@ -408,29 +387,6 @@ struct SendView: View {
         }
     }
     
-    
-//    func saveToFire() {
-//        print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
-//        let data = image?.jpegData(compressionQuality: 1.0)
-//        let receiverEncryptionPublicKey = try! Curve25519.KeyAgreement.PublicKey(rawRepresentation: agreement__ID)
-//        let sealedMessage = try! encrypt(data!, to: receiverEncryptionPublicKey, signedBy: privateID_Key)
-//
-//        print("NNN == \(models.allModels.count)")
-//        print("cc + \(sealedMessage.count)")
-//        print("jpeg + \(data?.count)")
-//        for mod in models.allModels {
-//            print("dossi = \(mod.authNumber)")
-//            let model = AuthModel(authNumber: "\(mod.authNumber)", authPhone: "\(mod.authPhone)", title: sealedMessage, fromPEER: "\(UIDevice.current.name)", toPEER: self.fromPeer, index_H: "2")
-//                models.saveToAllModels("\(mod.authNumber)", model)
-//
-//        }
-//        
-//    }
-//    func answerData() -> Data {
-//        let model = Model(peerID: Data(), massige: Data(), isSender: true,dateNow: dateNow, dateFutuer: dateFutuer)
-//        let modelData = try! JSONEncoder().encode(model)
-//       return modelData
-//    }
     
     private func setDateString() {
       let formatter = DateFormatter()

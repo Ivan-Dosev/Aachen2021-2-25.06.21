@@ -13,7 +13,8 @@ struct BlockView: View {
     var crypto : CryptoData_Array
     var index  : Int  {
         guard  let i = Int( crypto.index_F!) else {return 0 }
-        return     i
+        print("...i..ii...iii...\(i)")
+        return     i - 1
     } // [0,1,2] izprateno , polucheno , svidetel
  
     var buttonColor : Int
@@ -62,13 +63,16 @@ struct BlockView: View {
                 }.offset(x: -20)
                 Spacer()
                 VStack{
-                    Text("\(crypto.minuteMM!)")
+//                    Text("\(crypto.minuteMM!)")
+                    Text(crypto.minuteMM != nil ? "\(crypto.minuteMM!)" : "")
                         .offset(x: -20, y: -5)
                         .font(.custom("", size: 12 * button_index ))
-                    Text(" \(crypto.date_term!)    ")
+//                    Text(" \(crypto.date_term!)    ")
+                    Text(crypto.date_term != nil ? "\(crypto.date_term!)" : "")
                         .offset(x: -20, y: -2)
                         .font(.custom("", size: 12 * button_index ))
-                    Text(" \(crypto.data_event!)    ")
+//                    Text(" \(crypto.data_event!)    ")
+                    Text(crypto.data_event != nil ? "\(crypto.data_event!)" : "")
                         .font(.custom("", size: 12 * button_index ))
                         .offset(x: -20, y: -2)
                 }
@@ -79,6 +83,7 @@ struct BlockView: View {
         .frame(width: width_block, height:  height_block, alignment: .center)
         .foregroundColor(.white)
         .background(Color(groupColor[index]))
+//        .background(Color(groupColor[1]))
         .mask( BlockMidle())
         .overlay( BlockMidle().stroke(lineWidth: 2).foregroundColor(.gray).blur(radius: 1.0))
     }

@@ -12,6 +12,8 @@ import FirebaseAuth
 
 struct FirebaseView: View {
     
+    @Environment(\.managedObjectContext) var moc
+    @FetchRequest(entity: CryptoData_Array.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \CryptoData_Array.data_event, ascending: true)]) var cryptoDataArray: FetchedResults<CryptoData_Array>
     @Environment(\.presentationMode) var pMode
     @ObservedObject                  var models       = ModelRepository()
     @State var textSearch   : String = ""
@@ -112,22 +114,10 @@ struct FirebaseView: View {
                                             HStack {
                                                 Text("\(modelfier.authPhone)")
                                                     .padding()
-
- 
+                                                
+                                                
                                             }
-// MARK: - sendind Data to peer
-                                            Button(action: {
-
-                                                
-                                                
-                                                
-                                            }) {
-                                                Text("Send")
-                                                    .padding()
-                                                    .font(.custom("", size: 12 * button_index ))
-                                                    .frame(width: 70 * button_index , height: 30 * button_index , alignment: .center)
-                                                    .modifier(PrimaryButton(indexRadius: indexRadius))
-                                            }
+                                            // MARK: - sendind Data to peer
                                         }
                                     }
                                     .font(.system(size: 14))
@@ -148,11 +138,41 @@ struct FirebaseView: View {
                             }else{
                                 if modelfier.authNumber == userID {
                                     
+                                    
                                     VStack {
                                         ScrollView(.vertical) {
-                                            Text("\(modelfier.authPhone)")
-                                                .padding()
-                                            
+                                            ZStack {
+                                                if  modelfier.isDownloud {
+                                                    HStack {
+                                                        Text("☑️")
+                                                        Spacer()
+                                                    }
+                                                    .onAppear(perform: {
+                                                        print("onAppear....................")
+                                                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                                            let dataFromUrl : Data = modelfier.title.loadData()
+
+                                                            let textData = CryptoData_Array(context: moc)
+                                                            textData.peer_To_peer  = modelfier.fromPEER
+                                                            textData.name_Title    = modelfier.toPEER
+                                                            textData.crypt_Date    = dataFromUrl
+                                                            textData.data_event    = modelfier.data_event
+                                                            textData.date_term     = modelfier.date_term
+                                                            textData.minuteMM      = modelfier.minuteMM
+                                                            textData.index_F       = String(2)
+
+                                                        do {
+                                                            try self.moc.save()
+
+                                                            }catch {}
+                                                           
+                                                            pMode.wrappedValue.dismiss()
+                                                        }
+                                                    })
+                                                }
+                                                Text("\(modelfier.authPhone)")
+                                            }
+                                            .padding()
                                         }
                                     }
                                     .font(.system(size: 14))
@@ -171,14 +191,6 @@ struct FirebaseView: View {
                                     }
                                 }
                             }
-                            
-                       
-                            
-//                            BlockFierbaseView(model: modelfier)
-//                                .onTapGesture {
-//                                    image = modelfier.title.load()
-//                                    pMode.wrappedValue.dismiss()
-//                                }
                         }
                         
 // MARK: - end block fierbase
@@ -200,6 +212,7 @@ struct FirebaseView: View {
 
         }
     }
+    
 }
 
 struct FirebaseView_Previews: PreviewProvider {
@@ -214,14 +227,38 @@ extension String {
     func load() -> UIImage {
         do{
             
-            guard  let url = URL(string: self) else { return  UIImage(named: "klu4")! }
+            guard  let url = URL(string: self) else {
+                print("klu4 >>>>>>>>>>>>>>>>>>>>>>>>")
+                return  UIImage(named: "klu4")! }
             let data : Data = try Data(contentsOf: url)
-            return UIImage(data: data) ??  UIImage(named: "klu4")!
+            return UIImage(data: data) ??  UIImage(named: "klu3")!
             
         }catch{
             print("error image")
         }
         return UIImage()
+    }
+    
+    func loadData() -> Data {
+        
+        let klu4 = UIImage(named: "klu4")!.jpegData(compressionQuality: 1.0)
+        
+        do{
+            
+            guard  let url = URL(string: self) else {
+                print(" guard  let url = URL(string: self)")
+                return  klu4! }
+            let data : Data = try Data(contentsOf: url)
+            print(".......................................")
+            print(data)
+            print(">>...................................>>")
+            return data
+            
+        }catch{
+            print("error image")
+            return klu4!
+        }
+       
     }
     
 }

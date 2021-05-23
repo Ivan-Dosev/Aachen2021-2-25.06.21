@@ -160,7 +160,7 @@ struct Adress: View {
                 return
             }
             guard let user =  res?.user else { return}
-            let allData = AuthAll(authNumber: user.uid, authPhone: user.phoneNumber!, isInLine: true, dataPack: Data())
+            let allData = AuthAll(authNumber: user.uid, authPhone: user.phoneNumber!, isInLine: true,title : "", fromPEER: "",toPEER : "", isDownloud: false, data_event: "", date_term : "", minuteMM: "")
             
             do{
                 let _ = try db.collection("Allauth").addDocument(from: allData)
@@ -181,9 +181,6 @@ struct Adress: View {
                 return
             }
             guard let user =  autoResult?.user else { return}
-
-//            let allData = AuthAll(authNumber: user.uid, authPhone: "\(UIDevice.current.name)", isInLine: true)
-          
                 
                 do{
                     let _ = try db.collection("Allauth").document(user.uid).setData([
@@ -191,7 +188,14 @@ struct Adress: View {
                         "authNumber" : user.uid,
                         "authPhone" : "\(UIDevice.current.name)",
                         "isInLine": false,
-                        "dataPack": Data()
+                        "title": "",
+                        "fromPEER": "",
+                        "toPEER": "",
+                        "isDownloud": false,
+                        "data_event": "",
+                        "date_term": "",
+                        "minuteMM": ""
+                        
                     ])
                    
                     UserDefaults.standard.setValue(true, forKey: "status")

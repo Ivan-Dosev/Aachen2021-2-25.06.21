@@ -35,7 +35,14 @@ struct AuthAll : Codable, Identifiable , Hashable{
     var authNumber : String
     var authPhone  : String
     var isInLine   : Bool
-    var dataPack   : Data
+    var title      : String
+    var fromPEER   : String
+    var toPEER     : String
+    var isDownloud : Bool
+    var data_event : String
+    var date_term  : String
+    var minuteMM   : String
+    
 }
 
 

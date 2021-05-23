@@ -124,7 +124,7 @@ struct DataView: View {
                             ForEach(Array(zip(cryptoDataArray.indices ,cryptoDataArray.filter{self.textSearch.isEmpty ? true :  $0.name_Title!.lowercased().contains(self.textSearch.lowercased())} )), id:\.0) { ( number , index ) in
                                 BlockView(number: number, crypto: index, buttonColor: buttonColor)
                                         .onTapGesture {
-        //                                    deleteItem(indexSet: number)
+                                            deleteItem(indexSet: number)
                                         }
                                 }
                             
@@ -142,7 +142,7 @@ struct DataView: View {
                                         }
                                         
                                         if index.index_F == "3" {
-                                                image = UIImage(data: index.crypt_Date!)
+                                                image = UIImage(data: index.crypt_Date!) 
                                                 pMode.wrappedValue.dismiss()
                                         }
                                         
@@ -184,6 +184,13 @@ struct DataView: View {
             }.padding(.top, 20)
         }
     }
+    func deleteItem(indexSet: Int) {
+        let deleteItem = self.cryptoDataArray[indexSet]
+                         self.moc.delete(deleteItem)
+        
+        do{ try! self.moc.save() }
+    }
+    
     func witnessDecrypt(index: CryptoData_Array) {
         
         for crypt in cryptoDataArray {
