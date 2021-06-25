@@ -16,7 +16,9 @@ import SwiftUI
 var groupColor : [UIColor] = [ UIColor(red: 0.996  , green: 0.349  , blue: 0.169  , alpha: 1),
                                 UIColor(red: 0.267  , green: 0.686  , blue: 0.710  , alpha: 1),
                                 UIColor(red: 0.102  , green: 0.467  , blue: 0.639  , alpha: 1),
-                                UIColor(red: 1.000  , green: 0.698  , blue: 0.000  , alpha: 1)]
+                                UIColor(red: 1.000  , green: 0.698  , blue: 0.000  , alpha: 1),
+                                UIColor(red: 0.996  , green: 0.349  , blue: 0.169  , alpha: 1),
+                                UIColor(red: 0.996  , green: 0.349  , blue: 0.169  , alpha: 0.8)]
 var colorBackground2  =  UIColor(red: 0.678  , green: 0.663  , blue: 0.431  , alpha: 1)
 var colorBackground1  =  UIColor(red: 0.243  , green: 0.349  , blue: 0.400  , alpha: 1)
 var mayColor          =  UIColor(red: 0.827  , green: 0.918  , blue: 0.616  , alpha: 1)

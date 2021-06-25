@@ -15,7 +15,7 @@ struct FirebaseView: View {
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(entity: CryptoData_Array.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \CryptoData_Array.data_event, ascending: true)]) var cryptoDataArray: FetchedResults<CryptoData_Array>
     @Environment(\.presentationMode) var pMode
-    @ObservedObject                  var models       = ModelRepository()
+    @StateObject                  var models       = ModelRepository()
     @State var textSearch   : String = ""
     @Binding var image          : UIImage?
     let userID = Auth.auth().currentUser?.uid
@@ -151,10 +151,10 @@ struct FirebaseView: View {
                                                         print("onAppear....................")
                                                         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                                                             let dataFromUrl : Data = modelfier.title.loadData()
-
+//toPEER
                                                             let textData = CryptoData_Array(context: moc)
-                                                            textData.peer_To_peer  = modelfier.fromPEER
-                                                            textData.name_Title    = modelfier.toPEER
+                                                            textData.peer_To_peer  = modelfier.toPEER
+                                                            textData.name_Title    = modelfier.fromPEER
                                                             textData.crypt_Date    = dataFromUrl
                                                             textData.data_event    = modelfier.data_event
                                                             textData.date_term     = modelfier.date_term
@@ -163,10 +163,10 @@ struct FirebaseView: View {
 
                                                         do {
                                                             try self.moc.save()
-
+                                                            pMode.wrappedValue.dismiss()
                                                             }catch {}
                                                            
-                                                            pMode.wrappedValue.dismiss()
+                                                           
                                                         }
                                                     })
                                                 }
@@ -211,6 +211,14 @@ struct FirebaseView: View {
             }
 
         }
+    }
+    
+    func getDate() -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.locale = Locale.current
+        return dateFormatter.date(from: "2001-01-01") // replace Date String
     }
     
 }

@@ -10,6 +10,7 @@
 		CC633E4F264B819F005C7AB8 /* ModelRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC633E4E264B819F005C7AB8 /* ModelRepository.swift */; };
 		CC633EC4264ECD69005C7AB8 /* FirebaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC633EC3264ECD69005C7AB8 /* FirebaseView.swift */; };
 		CC633EC6264F76F9005C7AB8 /* BlockFierbaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC633EC5264F76F9005C7AB8 /* BlockFierbaseView.swift */; };
+		CCB833DE267F87E1006E073B /* PopoverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCB833DD267F87E1006E073B /* PopoverView.swift */; };
 		CCF813452648D26800A6869F /* Aachen2021App.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813442648D26800A6869F /* Aachen2021App.swift */; };
 		CCF813472648D26800A6869F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF813462648D26800A6869F /* ContentView.swift */; };
 		CCF813492648D26A00A6869F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCF813482648D26A00A6869F /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 		CC633E4E264B819F005C7AB8 /* ModelRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRepository.swift; sourceTree = "<group>"; };
 		CC633EC3264ECD69005C7AB8 /* FirebaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseView.swift; sourceTree = "<group>"; };
 		CC633EC5264F76F9005C7AB8 /* BlockFierbaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockFierbaseView.swift; sourceTree = "<group>"; };
+		CCB833DD267F87E1006E073B /* PopoverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopoverView.swift; sourceTree = "<group>"; };
 		CCF813412648D26800A6869F /* Aachen2021.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aachen2021.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF813442648D26800A6869F /* Aachen2021App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aachen2021App.swift; sourceTree = "<group>"; };
 		CCF813462648D26800A6869F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				CCF813962648E54E00A6869F /* BlockView.swift */,
+				CCB833DD267F87E1006E073B /* PopoverView.swift */,
 				CCF813982648E57700A6869F /* PickerButtonView.swift */,
 				CCF8139A2648E59700A6869F /* DataView.swift */,
 				CC633EC3264ECD69005C7AB8 /* FirebaseView.swift */,
@@ -374,6 +377,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCB833DE267F87E1006E073B /* PopoverView.swift in Sources */,
 				CCF813512648D26A00A6869F /* Aachen2021.xcdatamodeld in Sources */,
 				CCF8134E2648D26A00A6869F /* Persistence.swift in Sources */,
 				CCF813A12648E6DA00A6869F /* CryptoData_Array+CoreDataProperties.swift in Sources */,

@@ -14,7 +14,7 @@ struct BlockView: View {
     var index  : Int  {
         guard  let i = Int( crypto.index_F!) else {return 0 }
         print("...i..ii...iii...\(i)")
-        return     i - 1
+        return     i 
     } // [0,1,2] izprateno , polucheno , svidetel
  
     var buttonColor : Int
@@ -65,16 +65,17 @@ struct BlockView: View {
                 VStack{
 //                    Text("\(crypto.minuteMM!)")
                     Text(crypto.minuteMM != nil ? "\(crypto.minuteMM!)" : "")
-                        .offset(x: -20, y: -5)
+                        .offset(x: -12, y: -5)
                         .font(.custom("", size: 12 * button_index ))
 //                    Text(" \(crypto.date_term!)    ")
-                    Text(crypto.date_term != nil ? "\(crypto.date_term!)" : "")
-                        .offset(x: -20, y: -2)
-                        .font(.custom("", size: 12 * button_index ))
-//                    Text(" \(crypto.data_event!)    ")
                     Text(crypto.data_event != nil ? "\(crypto.data_event!)" : "")
                         .font(.custom("", size: 12 * button_index ))
-                        .offset(x: -20, y: -2)
+                        .offset(x: -12, y: -2)
+                    Text(crypto.date_term != nil ? "\(crypto.date_term!)" : "")
+                        .offset(x: -12, y: -2)
+                        .font(.custom("", size: 12 * button_index ))
+//                    Text(" \(crypto.data_event!)    ")
+
                 }
             }
         }

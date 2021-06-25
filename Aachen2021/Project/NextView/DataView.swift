@@ -21,7 +21,7 @@ struct DataView: View {
     
     @State var textSearch   : String = ""
     @State var pickerNumber : Int = 0
-    @State var peckerTexts   : [String] = [" All ","Received","Observer","Sended","Witness"]
+    @State var peckerTexts   : [String] = [" All ","Received","Observer","Sended","Witness","Denied"]
     
     @Binding var image          : UIImage?
     @Binding var isWitness      : Bool
@@ -98,24 +98,46 @@ struct DataView: View {
                                 .background(Color(colorBackground2))
                                 .mask( BlockMidle())
                                 .overlay( BlockMidle().stroke(lineWidth: 2).foregroundColor(.gray).blur(radius: 1.0))
-                
+  
 // MARK: - picker
-                
-                VStack(spacing: 0){
-                    HStack(alignment: .center,  spacing: 0 ){
-                        ForEach(Array(zip(peckerTexts, peckerTexts.indices)), id:\.0) {  pick , number in
-                            PickerButtonView(number: number, text: pick, pickerNumber: $pickerNumber, index: button_index, rediusR: indexRadius)
-                         
-                        }
-                    }
-                }
-                .font(.system(size: 20))
-                .padding()
-                .frame(width: width_block, height:  height_block, alignment: .center)
-                .foregroundColor(.white)
-                .background(Color(colorBackground2))
-                .mask( BlockMidle())
-                .overlay( BlockMidle().stroke(lineWidth: 2).foregroundColor(.gray).blur(radius: 1.0))
+                                
+                                VStack(spacing: 0){
+                                    HStack(alignment: .center,  spacing: 0 ){
+                                        
+                                        HStack{
+                                            Text("\(peckerTexts[pickerNumber])")
+                                                .font(.custom("", size: 20 * button_index ))
+                                                .padding(.horizontal, 20)
+                                        }
+                                        .clipped()
+                                        .id(pickerNumber)
+                                        .transition(rollTransition)
+
+                                        Spacer()
+                                        
+                                        Button(action: {
+                                            withAnimation{
+                                                pickerNumber = (pickerNumber + 1 ) % peckerTexts.count
+                                            }
+                                           
+                                        }) {
+                                            Text("select")
+                                                .padding()
+                                                .font(.custom("", size: 12 * button_index ))
+                                                .frame(width: 70 * button_index , height: 30 * button_index , alignment: .center)
+                                                .modifier(PrimaryButton(indexRadius: indexRadius))
+                                        }
+                                        .contextMenu{ contextMenu }
+                                    }
+                                }
+                                .font(.system(size: 20))
+                                .padding()
+                                .frame(width: width_block, height:  height_block, alignment: .center)
+                                .foregroundColor(.white)
+                                .background(Color(colorBackground2))
+                                .mask( BlockMidle())
+                                .overlay( BlockMidle().stroke(lineWidth: 2).foregroundColor(.gray).blur(radius: 1.0))
+
                 
                 ScrollView(.vertical) {
                     VStack(alignment: .center, spacing: -(spacing_block + lineWidth_block)) {
@@ -184,6 +206,18 @@ struct DataView: View {
             }.padding(.top, 20)
         }
     }
+    
+    var rollTransition : AnyTransition {
+        AnyTransition.asymmetric(insertion: .offset(x: 0, y: 20 * button_index), removal: .offset(x: 0, y: -(20 * button_index)))
+    }
+    
+    @ViewBuilder
+    var contextMenu : some View {
+        ForEach(Array(zip(peckerTexts, peckerTexts.indices)), id:\.0) {  pick , number in
+            PickerButtonView(number: number, text: pick, pickerNumber: $pickerNumber, index: button_index, rediusR: indexRadius)
+        }
+    }
+    
     func deleteItem(indexSet: Int) {
         let deleteItem = self.cryptoDataArray[indexSet]
                          self.moc.delete(deleteItem)

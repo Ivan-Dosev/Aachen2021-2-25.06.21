@@ -21,34 +21,8 @@ struct PickerButtonView: View {
                 self.pickerNumber = number
                 
             }) {
-                if self.pickerNumber == number {
                     Text("\(text)")
-//                        .padding()
-                        .font(.system(size: 12 * index))
-                        .frame(width: 65 * index , height: 25 * index , alignment: .center)
-                        .background(
-                            ZStack {
-                                Color(red: 224 / 255, green: 229 / 255, blue: 236 / 255)
-
-                                RoundedRectangle(cornerRadius: 5 * rediusR , style: .continuous)
-                                    .foregroundColor(.white)
-                                    .blur(radius: 4.0)
-                                    .offset(x: -8.0, y: -8.0) })
-
-                        .foregroundColor(.gray)
-                        .clipShape(RoundedRectangle(cornerRadius: 5 * rediusR  , style: .continuous))
-                }else{
-                    Text("\(text)")
-//                        .padding()
-                        .foregroundColor(.white)
-                        .font(.system(size: 12 * index))
-                        .frame(width: 65 * index , height: 25 * index , alignment: .center)
-                     
-                }
-
             }
-            
-           
         }
     }
 }

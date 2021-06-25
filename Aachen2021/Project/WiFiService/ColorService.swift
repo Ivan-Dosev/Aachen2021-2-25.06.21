@@ -25,6 +25,7 @@ class ColorService : NSObject, ObservableObject {
     private let ColorServiceType = "ex"
 
     private let myPeerId = MCPeerID(displayName: UIDevice.current.name)
+//    private let myPeerId = MCPeerID(displayName: "arda")
     private let serviceAdvertiser : MCNearbyServiceAdvertiser
     private let serviceBrowser : MCNearbyServiceBrowser
 
